@@ -39,6 +39,15 @@ public class StudentDemo {
 
             session.getTransaction().commit();
 
+            //update data
+            session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+
+            session.createQuery("update Student s set email='doe@mail.com' where s.firstName='John'")
+                    .executeUpdate();
+
+            session.getTransaction().commit();
+
         } finally {
             sessionFactory.close();
         }
