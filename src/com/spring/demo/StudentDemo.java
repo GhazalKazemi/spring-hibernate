@@ -48,6 +48,16 @@ public class StudentDemo {
 
             session.getTransaction().commit();
 
+            //delete data
+
+            session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+
+            session.createQuery("delete from Student s where s.lastName='Doe'").executeUpdate();
+
+
+            session.getTransaction().commit();
+
         } finally {
             sessionFactory.close();
         }
