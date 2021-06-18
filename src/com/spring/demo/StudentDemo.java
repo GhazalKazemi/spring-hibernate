@@ -19,6 +19,15 @@ public class StudentDemo {
             session.beginTransaction();
             session.save(tempStudent);
             session.getTransaction().commit();
+
+            // read data
+            session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+
+            Student student = session.get(Student.class, tempStudent.getId());
+            System.out.println("Read from the database: " + student);
+            session.getTransaction().commit();
+
         } finally {
             sessionFactory.close();
         }
