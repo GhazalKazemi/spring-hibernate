@@ -3,7 +3,7 @@
 
 #MySQL Connectivity
 data.properties
-
+hibernate.cfg.xml
 # IntelliJ project files
 .idea
 *.iml
