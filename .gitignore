@@ -1,6 +1,9 @@
 ### Example user template template
 ### Example user template
 
+#MySQL Connectivity
+data.properties
+
 # IntelliJ project files
 .idea
 *.iml
