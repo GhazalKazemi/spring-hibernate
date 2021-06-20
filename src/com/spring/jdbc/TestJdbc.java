@@ -11,7 +11,7 @@ public class TestJdbc {
 
     public static void main(String[] args) {
         Properties properties = new Properties();
-        String jdbcUrl = "jdbc:mysql://localhost:3306/hb-01-one-to-one-uni";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/hb-03-one-to-many";
         try {
             properties.load(new FileInputStream("data.properties"));
             String user = properties.getProperty("user");
