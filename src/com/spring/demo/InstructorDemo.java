@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.sql.SQLOutput;
+
 public class InstructorDemo {
 
     public static void main(String[] args) {
@@ -19,18 +21,26 @@ public class InstructorDemo {
 
         try {
 
-            Instructor dave = new Instructor(
-                    "dave", "darby", "dave@teach.com"
-            );
-            InstructorDetail daveDetail = new InstructorDetail(
-                    "dave.youtube.com", "biking"
-            );
-
-            dave.setInstructorDetail(daveDetail);
+//            Instructor dave = new Instructor(
+//                    "dave", "darby", "dave@teach.com"
+//            );
+//            InstructorDetail daveDetail = new InstructorDetail(
+//                    "dave.youtube.com", "biking"
+//            );
+//
+//            dave.setInstructorDetail(daveDetail);
 
             session.beginTransaction();
 
-            session.save(dave);
+            int instructorId =2;
+
+            Instructor deletingInstructor = session.get(Instructor.class, instructorId);
+
+            System.out.println("Deleting " + deletingInstructor.getFirstName());
+
+            if (deletingInstructor != null){
+                session.delete(deletingInstructor);
+            }
 
             session.getTransaction().commit();
 
