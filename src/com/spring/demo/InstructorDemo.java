@@ -37,6 +37,8 @@ public class InstructorDemo {
             session.getTransaction().commit();
 
         } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
             sessionFactory.close();
         }
     }
