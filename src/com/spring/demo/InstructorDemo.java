@@ -39,6 +39,7 @@ public class InstructorDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
+            session.close();
             sessionFactory.close();
         }
     }
