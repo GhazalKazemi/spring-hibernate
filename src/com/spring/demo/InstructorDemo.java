@@ -21,18 +21,24 @@ public class InstructorDemo {
 
         try {
 
-            Instructor mandy = new Instructor(
-                    "mandy", "moore", "mandy@teach.com"
-            );
-            InstructorDetail mandyDetail = new InstructorDetail(
-                    "mandy.youtube.com", "dancing"
-            );
+//            Instructor mandy = new Instructor(
+//                    "mandy", "moore", "mandy@teach.com"
+//            );
+//            InstructorDetail mandyDetail = new InstructorDetail(
+//                    "mandy.youtube.com", "dancing"
+//            );
 
-            mandyDetail.setInstructor(mandy);
+            int instructorDetailId = 3;
 
             session.beginTransaction();
 
-            session.save(mandyDetail);
+            InstructorDetail instructorDetailDelete = session.get(InstructorDetail.class, instructorDetailId);
+
+            System.out.println("Deleting associated instructor: " + instructorDetailDelete.getInstructor());
+
+            if (instructorDetailDelete != null) {
+                session.delete(instructorDetailDelete);
+            }
 
             session.getTransaction().commit();
 
