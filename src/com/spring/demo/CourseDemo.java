@@ -21,7 +21,7 @@ public class CourseDemo {
         try {
 
             session.beginTransaction();
-            Course java = new Course("Java Programming 101");
+            Course python = new Course("Python Programming 101");
 //            Instructor dave = new Instructor("dave", "doe", "dave@mail.com");
 //            InstructorDetail daveDetail = new InstructorDetail("dave.youtube.com", "biking");
 //            dave.setInstructorDetail(daveDetail);
@@ -29,9 +29,9 @@ public class CourseDemo {
 //            session.save(dave);
             int instructorId = 1;
             Instructor tempInstructor = session.get(Instructor.class, instructorId);
-            tempInstructor.addCourse(java);
+            tempInstructor.addCourse(python);
 
-            session.save(java);
+            session.save(python);
 
             session.getTransaction().commit();
 
