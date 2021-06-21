@@ -24,13 +24,14 @@ public class CourseDemo {
 
             session.beginTransaction();
 
-            int courseId = 12;
-            Course course = session.get(Course.class, courseId);
+            Course python = new Course("Python programming");
 
-            System.out.println("Deleting: " + course);
+            int instructorId =1;
+            Instructor tempInstructor = session.get(Instructor.class, instructorId);
 
-            session.delete(course);
+            tempInstructor.addCourse(python);
 
+            session.save(python);
             session.getTransaction().commit();
 
         } catch (Exception e) {
