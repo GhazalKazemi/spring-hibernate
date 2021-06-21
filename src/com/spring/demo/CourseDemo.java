@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class CourseDemo {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration()
@@ -21,17 +23,14 @@ public class CourseDemo {
         try {
 
             session.beginTransaction();
-            Course python = new Course("Python Programming 101");
-//            Instructor dave = new Instructor("dave", "doe", "dave@mail.com");
-//            InstructorDetail daveDetail = new InstructorDetail("dave.youtube.com", "biking");
-//            dave.setInstructorDetail(daveDetail);
-//
-//            session.save(dave);
+
             int instructorId = 1;
             Instructor tempInstructor = session.get(Instructor.class, instructorId);
-            tempInstructor.addCourse(python);
 
-            session.save(python);
+            System.out.println("Instructor: " + tempInstructor);
+            List<Course> courses = tempInstructor.getCourses();
+            System.out.println("Courses: " );
+            courses.forEach(System.out::println);
 
             session.getTransaction().commit();
 
