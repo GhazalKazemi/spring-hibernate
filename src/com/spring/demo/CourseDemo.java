@@ -22,13 +22,16 @@ public class CourseDemo {
 
             session.beginTransaction();
             Course java = new Course("Java Programming 101");
-            Instructor dave = new Instructor("dave", "doe", "dave@mail.com");
-            InstructorDetail daveDetail = new InstructorDetail("dave.youtube.com", "biking");
-            dave.setInstructorDetail(daveDetail);
+//            Instructor dave = new Instructor("dave", "doe", "dave@mail.com");
+//            InstructorDetail daveDetail = new InstructorDetail("dave.youtube.com", "biking");
+//            dave.setInstructorDetail(daveDetail);
+//
+//            session.save(dave);
+            int instructorId = 1;
+            Instructor tempInstructor = session.get(Instructor.class, instructorId);
+            tempInstructor.addCourse(java);
 
-            session.save(dave);
-
-
+            session.save(java);
 
             session.getTransaction().commit();
 
