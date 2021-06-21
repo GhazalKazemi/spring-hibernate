@@ -24,13 +24,12 @@ public class CourseDemo {
 
             session.beginTransaction();
 
-            int instructorId = 1;
-            Instructor tempInstructor = session.get(Instructor.class, instructorId);
+            int courseId = 12;
+            Course course = session.get(Course.class, courseId);
 
-            System.out.println("Instructor: " + tempInstructor);
-            List<Course> courses = tempInstructor.getCourses();
-            System.out.println("Courses: " );
-            courses.forEach(System.out::println);
+            System.out.println("Deleting: " + course);
+
+            session.delete(course);
 
             session.getTransaction().commit();
 
