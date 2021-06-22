@@ -32,9 +32,13 @@ public class CourseStudentDemo {
 //            session.save(john);
 //            session.save(mary);
 
-            int courseId = 14;
-            Course course = session.get(Course.class, courseId);
-            session.delete(course);
+//            int courseId = 14;
+//            Course course = session.get(Course.class, courseId);
+//            session.delete(course);
+
+            int studentId = 2;
+            Student student = session.get(Student.class, studentId);
+            session.delete(student);
 
             session.getTransaction().commit();
 
