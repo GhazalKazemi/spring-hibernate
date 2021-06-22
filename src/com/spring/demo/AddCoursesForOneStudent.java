@@ -25,14 +25,14 @@ public class AddCoursesForOneStudent {
             int studentId = 2;
             Student student = session.get(Student.class, studentId);
             System.out.println("Student courses: " + student.getCourses());
-            Course python = new Course("Python programming");
-            Course php = new Course("PHP programming");
-
-            python.addStudent(student);
-            php.addStudent(student);
-
-            session.save(python);
-            session.save(php);
+//            Course python = new Course("Python programming");
+//            Course php = new Course("PHP programming");
+//
+//            python.addStudent(student);
+//            php.addStudent(student);
+//
+//            session.save(python);
+//            session.save(php);
 
 
 
