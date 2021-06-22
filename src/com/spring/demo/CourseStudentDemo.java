@@ -21,16 +21,21 @@ public class CourseStudentDemo {
         Session session = sessionFactory.getCurrentSession();
         try{
             session.beginTransaction();
-            Course java = new Course("Java Programming");
-            session.save(java);
-            Student john = new Student("John", "Doe", "john@mail.com");
-            Student mary = new Student("Mary", "Public", "mary@mail.com");
+//            Course java = new Course("Java Programming");
+//            session.save(java);
+//            Student john = new Student("John", "Doe", "john@mail.com");
+//            Student mary = new Student("Mary", "Public", "mary@mail.com");
+//
+//            java.addStudent(john);
+//            java.addStudent(mary);
+//
+//            session.save(john);
+//            session.save(mary);
 
-            java.addStudent(john);
-            java.addStudent(mary);
+            int courseId = 14;
+            Course course = session.get(Course.class, courseId);
+            session.delete(course);
 
-            session.save(john);
-            session.save(mary);
             session.getTransaction().commit();
 
         }catch (Exception e ){
