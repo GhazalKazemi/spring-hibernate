@@ -7,6 +7,9 @@ import com.spring.entity.Review;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class ReviewDemo {
 
@@ -24,18 +27,24 @@ public class ReviewDemo {
         try {
             session.beginTransaction();
 
-            Course java = new Course("Java Programming");
+//            Course java = new Course("Java Programming");
+//
+//            Review review1 = new Review("What an awesome course!");
+//            Review review2 = new Review("Borriiiiing!");
+//            Review review3 = new Review("Totally clear");
+//
+//            java.addReview(review1);
+//            java.addReview(review2);
+//            java.addReview(review3);
+//
+//            session.save(java);
 
-            Review review1 = new Review("What an awesome course!");
-            Review review2 = new Review("Borriiiiing!");
-            Review review3 = new Review("Totally clear");
+            int courseId = 10;
 
-            java.addReview(review1);
-            java.addReview(review2);
-            java.addReview(review3);
+            Course course = session.get(Course.class, courseId);
 
-            session.save(java);
-
+            List<Review> reviews = course.getReviews();
+            reviews.forEach(System.out::println);
 
             session.getTransaction().commit();
         }catch (Exception e){
